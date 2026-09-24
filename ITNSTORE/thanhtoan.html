@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Thanh toán - International Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Thanh toán sản phẩm</h1>
+
+    </header>
+
+    <main class="checkout">
+
+        <h2 id="product-name">Sản phẩm</h2>
+
+        <img id="product-image"
+             src=""
+             alt="Sản phẩm"
+             class="checkout-img">
+
+        <p id="product-price" class="price"></p>
+
+
+        <h2>Thông tin khách hàng</h2>
+
+        <form>
+
+            <label>Họ và tên:</label>
+
+            <input type="text" required>
+
+
+            <label>Số điện thoại:</label>
+
+            <input type="tel" required>
+
+
+            <label>Email:</label>
+
+            <input type="email" required>
+
+
+            <label>Địa chỉ nhận hàng:</label>
+
+            <input type="text" required>
+
+
+            <label>Số lượng:</label>
+
+            <input type="number" value="1" min="1">
+
+
+            <label>Phương thức thanh toán:</label>
+
+            <select>
+
+                <option>Thanh toán khi nhận hàng (COD)</option>
+
+                <option>Chuyển khoản ngân hàng</option>
+
+            </select>
+
+
+            <button type="submit">
+                Đặt hàng
+            </button>
+
+        </form>
+
+
+        <a href="trangchu.html" class="back">
+            ← Quay lại cửa hàng
+        </a>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Contact us
+            <a href="mailto:24103250@st.phenikaa-uni.edu.vn">
+                From Phenikaa University with love
+            </a>
+            Thank you!!!
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        const products = {
+
+    /* ================= ÁO HÈ ================= */
+
+    aohe1: {
+        name: "DAILY CREST POLO",
+        image: "KhoAohe/aohe1.webp",
+        price: "499.000đ"
+    },
+
+    aohe2: {
+        name: "EDEN LOST POLO",
+        image: "KhoAohe/aohe2.webp",
+        price: "599.000đ"
+    },
+
+    aohe3: {
+        name: "HUSTLE SHIELD POLO",
+        image: "KhoAohe/aohe3.webp",
+        price: "699.000đ"
+    },
+
+    aohe4: {
+        name: "CRIMSON STRIPES KNIT POLO",
+        image: "KhoAohe/aohe4.webp",
+        price: "499.000đ"
+    },
+
+    aohe5: {
+        name: "MONOGRAM STRIPES POLO",
+        image: "KhoAohe/aohe5.webp",
+        price: "599.000đ"
+    },
+
+    aohe6: {
+        name: "TONAL STRIPES JERSEY",
+        image: "KhoAohe/aohe6.webp",
+        price: "699.000đ"
+    },
+
+    aohe7: {
+        name: "EDEN LOST",
+        image: "KhoAohe/aohe7.webp",
+        price: "499.000đ"
+    },
+
+    aohe8: {
+        name: "MASKED GLORY",
+        image: "KhoAohe/aohe8.webp",
+        price: "599.000đ"
+    },
+
+    aohe9: {
+        name: "SHURIKEN MOTIF JERSEY",
+        image: "KhoAohe/aohe9.webp",
+        price: "699.000đ"
+    },
+
+    aohe10: {
+        name: "PISTON RETRO JERSEY",
+        image: "KhoAohe/aohe10.webp",
+        price: "499.000đ"
+    },
+
+    aohe11: {
+        name: "PRIME CLASH JERSEY",
+        image: "KhoAohe/aohe11.webp",
+        price: "599.000đ"
+    },
+
+    aohe12: {
+        name: "CORE TEMP",
+        image: "KhoAohe/aohe12.webp",
+        price: "699.000đ"
+    },
+
+    aohe13: {
+        name: "MISFIT COUTURE",
+        image: "KhoAohe/aohe13.webp",
+        price: "499.000đ"
+    },
+
+    aohe14: {
+        name: "GLORY PINSTRIPE JERSEY",
+        image: "KhoAohe/aohe14.webp",
+        price: "599.000đ"
+    },
+
+    aohe15: {
+        name: "LOST IN MIKENIVERSE",
+        image: "KhoAohe/aohe15.webp",
+        price: "699.000đ"
+    },
+
+    aohe16: {
+        name: "DAILY RAGLAN",
+        image: "KhoAohe/aohe16.webp",
+        price: "499.000đ"
+    },
+
+    aohe17: {
+        name: "CHAMPION GLORY",
+        image: "KhoAohe/aohe17.webp",
+        price: "599.000đ"
+    },
+
+    aohe18: {
+        name: "GLORIOUS JERSEY",
+        image: "KhoAohe/aohe18.webp",
+        price: "699.000đ"
+    },
+
+
+    /* ================= QUẦN HÈ ================= */
+
+    quanhe1: {
+        name: "DOUBLE LINE SHORT",
+        image: "KhoQuanhe/quanhe1.webp",
+        price: "499.000đ"
+    },
+
+    quanhe2: {
+        name: "GLORY PINSTRIPE SHORT",
+        image: "KhoQuanhe/quanhe2.webp",
+        price: "599.000đ"
+    },
+
+    quanhe3: {
+        name: "OVERHEAT STAY CHILL SHORT",
+        image: "KhoQuanhe/quanhe3.webp",
+        price: "699.000đ"
+    },
+
+    quanhe4: {
+        name: "FALLEN HEAVEN SHORT",
+        image: "KhoQuanhe/quanhe4.webp",
+        price: "499.000đ"
+    },
+
+    quanhe5: {
+        name: "FEED NO FEAR SHORT",
+        image: "KhoQuanhe/quanhe5.webp",
+        price: "599.000đ"
+    },
+
+    quanhe6: {
+        name: "CARTEL DENIM SHORT",
+        image: "KhoQuanhe/quanhe6.webp",
+        price: "699.000đ"
+    },
+
+    quanhe7: {
+        name: "BAROQUE LION SHORT",
+        image: "KhoQuanhe/quanhe7.webp",
+        price: "499.000đ"
+    },
+
+    quanhe8: {
+        name: "FAITH THE FEAR SHORT",
+        image: "KhoQuanhe/quanhe8.webp",
+        price: "599.000đ"
+    },
+
+    quanhe9: {
+        name: "STAR PATCHWORK SHORT",
+        image: "KhoQuanhe/quanhe9.webp",
+        price: "699.000đ"
+    },
+
+    quanhe10: {
+        name: "GLORIOUS CHEVRON SHORT",
+        image: "KhoQuanhe/quanhe10.webp",
+        price: "499.000đ"
+    },
+
+    quanhe11: {
+        name: "OVERHEAT CLUB SHORT",
+        image: "KhoQuanhe/quanhe11.webp",
+        price: "599.000đ"
+    },
+
+    quanhe12: {
+        name: "SALITOS LEGACY SHORT",
+        image: "KhoQuanhe/quanhe12.webp",
+        price: "699.000đ"
+    },
+
+    quanhe13: {
+        name: "GLORY SPIRIT SHORT",
+        image: "KhoQuanhe/quanhe13.webp",
+        price: "499.000đ"
+    },
+
+    quanhe14: {
+        name: "SALITOS VIVA VIDA SHORT",
+        image: "KhoQuanhe/quanhe14.webp",
+        price: "599.000đ"
+    },
+
+
+    /* ================= ÁO ĐÔNG ================= */
+
+    aodong1: {
+        name: "HERITAGE TRACK JACKET",
+        image: "KhoAodong/aodong1.webp",
+        price: "499.000đ"
+    },
+
+    aodong2: {
+        name: "GENESIS POLY TRACK JACKET",
+        image: "KhoAodong/aodong2.webp",
+        price: "599.000đ"
+    },
+
+    aodong3: {
+        name: "GLORY STEEL WINDBREAKER",
+        image: "KhoAodong/aodong3.webp",
+        price: "699.000đ"
+    },
+
+    aodong4: {
+        name: "FOREST POLY TRACK JACKET",
+        image: "KhoAodong/aodong4.webp",
+        price: "499.000đ"
+    },
+
+    aodong5: {
+        name: "TIGER GLORY VARSITY",
+        image: "KhoAodong/aodong5.webp",
+        price: "599.000đ"
+    },
+
+    aodong6: {
+        name: "KNIGHT'S GLORY VARSITY",
+        image: "KhoAodong/aodong6.webp",
+        price: "699.000đ"
+    },
+
+    aodong7: {
+        name: "PEGASUS GLORY VARSITY",
+        image: "KhoAodong/aodong7.webp",
+        price: "499.000đ"
+    },
+
+    aodong8: {
+        name: "COLLARED BOMBER JACKET",
+        image: "KhoAodong/aodong8.webp",
+        price: "599.000đ"
+    },
+
+    aodong9: {
+        name: "MIDNIGHT GLORY VARSITY",
+        image: "KhoAodong/aodong9.webp",
+        price: "699.000đ"
+    },
+
+    aodong10: {
+        name: "GWYN WASH HOODIE",
+        image: "KhoAodong/aodong10.webp",
+        price: "499.000đ"
+    },
+
+    aodong11: {
+        name: "CAMO HEAVY WASH ZIP HOODIE",
+        image: "KhoAodong/aodong11.webp",
+        price: "599.000đ"
+    },
+
+    aodong12: {
+        name: "RAW EDGE BLACK HOODIE ZIP",
+        image: "KhoAodong/aodong12.webp",
+        price: "699.000đ"
+    },
+
+    aodong13: {
+        name: "ARMOUR HOCKEY JERSEY",
+        image: "KhoAodong/aodong13.webp",
+        price: "499.000đ"
+    },
+
+    aodong14: {
+        name: "GLORIOUS STRIPES KNITWEAR",
+        image: "KhoAodong/aodong14.jpg",
+        price: "599.000đ"
+    },
+
+    aodong15: {
+        name: "VICTORY STAR KNITWEAR",
+        image: "KhoAodong/aodong15.jpg",
+        price: "699.000đ"
+    },
+
+    aodong16: {
+        name: "GLORIOUS HOODIE",
+        image: "KhoAodong/aodong16.webp",
+        price: "499.000đ"
+    },
+
+    aodong17: {
+        name: "NIGHT FURY KNITWEAR",
+        image: "KhoAodong/aodong17.webp",
+        price: "599.000đ"
+    },
+
+    aodong18: {
+        name: "VELVET INNERPRINT GILET",
+        image: "KhoAodong/aodong18.webp",
+        price: "699.000đ"
+    },
+
+
+    /* ================= QUẦN ĐÔNG ================= */
+
+    quandong1: {
+        name: "GENESIS POLY TRACK PANT",
+        image: "KhoQuandong/quandong1.webp",
+        price: "499.000đ"
+    },
+
+    quandong2: {
+        name: "FOREST POLY TRACK PANT",
+        image: "KhoQuandong/quandong2.webp",
+        price: "599.000đ"
+    },
+
+    quandong3: {
+        name: "GWYN DOUBLE KNEE FLARE JEANS",
+        image: "KhoQuandong/quandong3.webp",
+        price: "699.000đ"
+    },
+
+    quandong4: {
+        name: "HERITAGE TRACK PANT",
+        image: "KhoQuandong/quandong4.webp",
+        price: "499.000đ"
+    },
+
+    quandong5: {
+        name: "WORKSHOP STRAIGHT JEANS",
+        image: "KhoQuandong/quandong5.webp",
+        price: "599.000đ"
+    },
+
+    quandong6: {
+        name: "DOUBLE FLARE JEANS",
+        image: "KhoQuandong/quandong6.webp",
+        price: "699.000đ"
+    },
+
+    quandong7: {
+        name: "GWYN STAR DOUBLE KNEE JEANS",
+        image: "KhoQuandong/quandong7.webp",
+        price: "499.000đ"
+    },
+
+    quandong8: {
+        name: "GWYN WIDE-LEG SWEATPANTS",
+        image: "KhoQuandong/quandong8.webp",
+        price: "599.000đ"
+    },
+
+    quandong9: {
+        name: "TECHNICAL TRACK PANT",
+        image: "KhoQuandong/quandong9.webp",
+        price: "699.000đ"
+    },
+
+    quandong10: {
+        name: "GWYN DOUBLE KNEE Z JEANS",
+        image: "KhoQuandong/quandong10.webp",
+        price: "499.000đ"
+    },
+
+    quandong11: {
+        name: "GWYN BAGGY JEANS",
+        image: "KhoQuandong/quandong11.webp",
+        price: "599.000đ"
+    },
+
+    quandong12: {
+        name: "MONOGRAM CARPENTER JEANS",
+        image: "KhoQuandong/quandong12.jpg",
+        price: "699.000đ"
+    },
+
+    quandong13: {
+        name: "DECIBEL CHAINS STRAIGHT JEANS",
+        image: "KhoQuandong/quandong13.webp",
+        price: "499.000đ"
+    },
+
+    quandong14: {
+        name: "POCKETS STRAIGHT CARGO",
+        image: "KhoQuandong/quandong14.webp",
+        price: "599.000đ"
+    },
+
+    quandong15: {
+        name: "DOUBLE TAPE STRAIGHT JEANS",
+        image: "KhoQuandong/quandong15.webp",
+        price: "699.000đ"
+    },
+
+
+    /* ================= SET ================= */
+
+    set1: {
+        name: "P-BALL RESORT SET",
+        image: "KhoSets/set1.webp",
+        price: "499.000đ"
+    },
+
+    set2: {
+        name: "SALITOS LEGACY SET",
+        image: "KhoSets/set2.webp",
+        price: "599.000đ"
+    },
+
+    set3: {
+        name: "SALITOS VIVA VIDA SET",
+        image: "KhoSets/set3.webp",
+        price: "699.000đ"
+    },
+
+    set4: {
+        name: "TROPICAL FRAME SET",
+        image: "KhoSets/set4.jpg",
+        price: "499.000đ"
+    },
+
+    set5: {
+        name: "COSMIC NIGHT SET",
+        image: "KhoSets/set5.jpg",
+        price: "599.000đ"
+    },
+
+    set6: {
+        name: "MONOGRAM SATIN SET",
+        image: "KhoSets/set6.webp",
+        price: "699.000đ"
+    },
+
+    set7: {
+        name: "GENESIS POLY TRACK SET",
+        image: "KhoSets/set7.webp",
+        price: "499.000đ"
+    },
+
+    set8: {
+        name: "FOREST POLY TRACK SET",
+        image: "KhoSets/set8.webp",
+        price: "599.000đ"
+    },
+
+
+    /* ================= TÚI / VÍ ================= */
+
+    tui1: {
+        name: "GLORIOUS LEATHER DUFFEL BAG",
+        image: "KhoTuivavi/tui1.webp",
+        price: "499.000đ"
+    },
+
+    tui2: {
+        name: "CHRISTOPHER MM",
+        image: "KhoTuivavi/tui2.webp",
+        price: "599.000đ"
+    },
+
+    tui3: {
+        name: "DISTRICT PM",
+        image: "KhoTuivavi/tui3.webp",
+        price: "699.000đ"
+    },
+
+    vi1: {
+        name: "DSW ORIGINAL WALLET",
+        image: "KhoTuivavi/vi1.webp",
+        price: "499.000đ"
+    },
+
+    vi2: {
+        name: "DSW IDENTITY WALLET",
+        image: "KhoTuivavi/vi2.webp",
+        price: "599.000đ"
+    },
+
+    cap1: {
+        name: "DSW CLASSY BACKPACK",
+        image: "KhoTuivavi/cap1.webp",
+        price: "699.000đ"
+    },
+
+    cap2: {
+        name: "LEATHER BACKPACK BOX",
+        image: "KhoTuivavi/cap2.webp",
+        price: "499.000đ"
+    },
+
+
+    /* ================= GIÀY ================= */
+
+    giay1: {
+        name: "Nike Air Max 2K",
+        image: "KhoGiay/giay1.avif",
+        price: "599.000đ"
+    },
+
+    giay2: {
+        name: "Nike Zoom Vomero 5",
+        image: "KhoGiay/giay2.avif",
+        price: "699.000đ"
+    },
+
+    giay3: {
+        name: "Nike V5 RNR",
+        image: "KhoGiay/giay3.avif",
+        price: "699.000đ"
+    },
+
+
+    /* ================= PHỤ KIỆN ================= */
+
+    mu1: {
+        name: "REBEL GLORY CAP",
+        image: "KhoPhuKien/mu1.webp",
+        price: "499.000đ"
+    },
+
+    mu2: {
+        name: "TASTE OF VICTORY CAP",
+        image: "KhoPhuKien/mu2.webp",
+        price: "599.000đ"
+    },
+
+    mu3: {
+        name: "GWYN LEGACY GOLF CAP",
+        image: "KhoPhuKien/mu3.webp",
+        price: "699.000đ"
+    },
+
+    mu4: {
+        name: "GWYN FITTED CAP",
+        image: "KhoPhuKien/mu4.webp",
+        price: "499.000đ"
+    },
+
+    tat1: {
+        name: "COUTURE SOCKS",
+        image: "KhoPhuKien/tat1.webp",
+        price: "599.000đ"
+    },
+
+    tat2: {
+        name: "PRIDDE SOCKS",
+        image: "KhoPhuKien/tat2.webp",
+        price: "699.000đ"
+    },
+
+    khan1: {
+        name: "COUTURE SCARF",
+        image: "KhoPhuKien/khan1.webp",
+        price: "499.000đ"
+    },
+
+    thatlung1: {
+        name: "ENGRAVED BUCKLE LEATHER BELT",
+        image: "KhoPhuKien/thatlung1.webp",
+        price: "499.000đ"
+    }
+
+};
+
+
+        const params = new URLSearchParams(window.location.search);
+
+        const productId = params.get("product");
+
+
+        if (productId && products[productId]) {
+
+            document.getElementById("product-name").textContent =
+                products[productId].name;
+
+            document.getElementById("product-image").src =
+                products[productId].image;
+
+            document.getElementById("product-image").alt =
+                products[productId].name;
+
+            document.getElementById("product-price").textContent =
+                products[productId].price;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
